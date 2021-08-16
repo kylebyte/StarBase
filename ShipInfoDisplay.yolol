@@ -8,3 +8,4 @@ if :safezone == 1 then :szd="YES" else :szd="NO" end
 goto1
 //please use a memorychip, create the below fields
 //tpd szd wcd dispData Shinfo
+//create a textpanel 24x24 and rename PanelValue to Shinfo
