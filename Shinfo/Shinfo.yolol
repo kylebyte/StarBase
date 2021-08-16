@@ -1,7 +1,7 @@
 if :transponder == 1 then :tpd="ON" else :tpd="OFF" end
 if :safezone == 1 then :szd="YES" else :szd="NO" end
 :dispdata = ""
-:dispdata = :dispdata + "Trspdr : " + :tpd + "\n"
+:dispdata = :dispdata + "Trspdr: " + :tpd + "\n"
 :dispdata = :dispdata + "Safe: " + :szd + "\n"
 :dispdata = :dispdata + "WpCls: " + :warpclass + "\n"
 :Shinfo = :dispdata
