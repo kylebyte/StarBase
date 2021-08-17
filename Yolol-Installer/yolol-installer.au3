@@ -24,7 +24,6 @@ Func Main()
         Sleep(50)
         Credits()
         YololInstall($rawyolol)
-        MsgBox("","Done","All done! Press esc.", 2)
     Else
         MsgBox("","Error", "Something went wrong?", 2)
     EndIf
@@ -88,7 +87,6 @@ Func ClearLines()
 EndFunc
 
 Func Credits()
-    
     Sleep(20)
     ClearLines()
     Up20Lines()
