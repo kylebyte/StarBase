@@ -11,22 +11,27 @@
 ;Settings > Gameplay > Camera > Zoom in on YOLOL chip when editing
 
 
+$message = "UNLOCK YOLOL CHIP AND DO NOT LOOK AWAY OR MOVE" & @CRLF & @CRLF & "github.com/kylebyte/StarBase" & @CRLF & @CRLF & "ISAN is default script https://pastebin.com/raw/bJR6D6dd"
 $isanraw = "https://pastebin.com/raw/bJR6D6dd"
 
 Main()
 
 Func Main()
-    YololInstall(GetSourceYolol())
+    $rawyolol = GetSourceYolol()
+    Credits()
+    YololInstall($rawyolol)
 EndFunc
 
 Func GetSourceYolol()
-    $inputsource = InputBox("YololFromInet", "Put in the URL of raw yolol",$isanraw)
+    $inputsource = InputBox("Yolol Installer", $message ,$isanraw)
 
     if $inputsource Then
         $source = _INetGetSource($inputsource)  
     Else
         MsgBox('', "error", "error with the URL or data")
+        Return 1
     EndIf
+
 
     Return $source
 EndFunc
@@ -34,7 +39,6 @@ EndFunc
 Func YololInstall($source)
     WinActivate("Starbase")
     Send(MouseClick)
-    ClearLines()
 
     $filename = "temp.yolol"
      
@@ -47,7 +51,6 @@ Func YololInstall($source)
     if $file Then
         WinActivate("Starbase")
         Send(MouseClick)
-        Up20Lines()
 
         For $i = 1 to _FileCountLines($file)
             $line = FileReadLine($file, $i)
@@ -85,4 +88,15 @@ Func ClearLines()
     Next
 
     Opt( "SendKeyDownDelay", 10)
+EndFunc
+
+Func Credits()
+    WinActivate("Starbase")
+    Send(MouseClick)
+    ClearLines()
+    Up20Lines()
+    Send("YOLOL INSTALLER by github.com/kylebyte/StarBase")
+    Sleep(1000)
+    ClearLines()
+    Up20Lines()
 EndFunc
