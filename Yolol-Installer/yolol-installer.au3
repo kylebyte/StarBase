@@ -92,7 +92,8 @@ EndFunc
 
 Func Credits()
     WinActivate("Starbase")
-    Send(MouseClick)
+    Send(MouseClick("","",2,15))
+    Sleep(20)
     ClearLines()
     Up20Lines()
     Send("YOLOL INSTALLER by github.com/kylebyte/StarBase")
