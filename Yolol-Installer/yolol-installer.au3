@@ -5,9 +5,11 @@
 
 ;yolol installer script, using autoIT
 ;created by github.com/kylebyte
+;requires autoit install, https://www.autoitscript.com/site/autoit/downloads/
 ;use any raw yolol code found on the internet, I have put ISAN URL in by default
 ;I recommend enable zoom in on YOLOL chip in settings
 ;Settings > Gameplay > Camera > Zoom in on YOLOL chip when editing
+
 
 $isanraw = "https://pastebin.com/raw/bJR6D6dd"
 
