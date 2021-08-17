@@ -20,6 +20,7 @@ Func Main()
     $rawyolol = GetSourceYolol()
     Credits()
     YololInstall($rawyolol)
+    MsgBox("","Done","All done! Press esc.", 2)
 EndFunc
 
 Func GetSourceYolol()
