@@ -11,7 +11,7 @@
 ;Settings > Gameplay > Camera > Zoom in on YOLOL chip when editing
 
 
-$message = "UNLOCK YOLOL CHIP AND DO NOT LOOK AWAY OR MOVE" & @CRLF & @CRLF & "github.com/kylebyte/StarBase" & @CRLF & @CRLF & "ISAN is default script https://pastebin.com/raw/bJR6D6dd"
+$message = "UNLOCK YOLOL CHIP AND DO NOT LOOK AWAY OR MOVE" & @CRLF & @CRLF & "github.com/kylebyte/StarBase" & @CRLF & @CRLF & "ISAN is default script"
 $isanraw = "https://pastebin.com/raw/bJR6D6dd"
 
 Main()
