@@ -18,9 +18,14 @@ Main()
 
 Func Main()
     $rawyolol = GetSourceYolol()
-    Credits()
-    YololInstall($rawyolol)
-    MsgBox("","Done","All done! Press esc.", 2)
+    if $rawyolol Then
+        Credits()
+        YololInstall($rawyolol)
+        MsgBox("","Done","All done! Press esc.", 2)
+    Else
+        MsgBox("","Error", "Something went wrong?", 2)
+    EndIf
+
 EndFunc
 
 Func GetSourceYolol()
@@ -32,7 +37,6 @@ Func GetSourceYolol()
         MsgBox('', "error", "error with the URL or data")
         Return 1
     EndIf
-
 
     Return $source
 EndFunc
@@ -93,7 +97,7 @@ EndFunc
 
 Func Credits()
     WinActivate("Starbase")
-    Send(MouseClick("","",2,15))
+    Send(MouseClick("","",1))
     Sleep(20)
     ClearLines()
     Up20Lines()
