@@ -19,6 +19,9 @@ Main()
 Func Main()
     $rawyolol = GetSourceYolol()
     if $rawyolol Then
+        WinActivate("Starbase")
+        MouseClick("Left")
+        Sleep(50)
         Credits()
         YololInstall($rawyolol)
         MsgBox("","Done","All done! Press esc.", 2)
@@ -35,16 +38,13 @@ Func GetSourceYolol()
         $source = _INetGetSource($inputsource)  
     Else
         MsgBox('', "error", "error with the URL or data")
-        Return 1
+        Exit(1)
     EndIf
 
     Return $source
 EndFunc
 
 Func YololInstall($source)
-    WinActivate("Starbase")
-    Send(MouseClick)
-
     $filename = "temp.yolol"
      
     _FileCreate($filename)
@@ -54,9 +54,6 @@ Func YololInstall($source)
     FileOpen($file)
 
     if $file Then
-        WinActivate("Starbase")
-        Send(MouseClick)
-
         For $i = 1 to _FileCountLines($file)
             $line = FileReadLine($file, $i)
             ;MsgBox("","", $line, 1)
@@ -64,10 +61,8 @@ Func YololInstall($source)
             Sleep(50)
             Send("{DOWN}")
         Next
-
         FileClose($file)
         FileDelete($filename)
-
     Else
         MsgBox('','err','err', 1)
     EndIf
@@ -80,15 +75,12 @@ Func Up20Lines()
 EndFunc
 
 Func ClearLines()
-    Opt( "SendKeyDownDelay", 20)
+    Opt("SendKeyDownDelay", 20)
     Up20Lines()
     Sleep(50)
     for $j = 1 to 20
-        ;Sleep(50)
         Send("^a")
-        ;Sleep(50)
         Send("{DELETE}")
-        ;Sleep(50)
         Send("{DOWN}")
     Next
 
@@ -96,11 +88,11 @@ Func ClearLines()
 EndFunc
 
 Func Credits()
-    WinActivate("Starbase")
-    Send(MouseClick("","",1))
+    
     Sleep(20)
     ClearLines()
     Up20Lines()
+
     Send("YOLOL INSTALLER by github.com/kylebyte/StarBase")
     Sleep(1000)
     Opt( "SendKeyDownDelay", 30)
