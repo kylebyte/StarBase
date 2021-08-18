@@ -1,0 +1,9 @@
+:index=0 n="\n"
+IF :sensor==0 THEN goto8 end
+:oredata=""
+:oredata+=n+:material :oredata+=n+:volume :index++
+IF :index>=:scanresults THEN goto6 ELSE goto4 end
+
+
+:index=0 if :sensor==1 then :scan=1 else goto9 end
+if :sensor==0 then :oredata="OFF" else :oredata="" end goto1
