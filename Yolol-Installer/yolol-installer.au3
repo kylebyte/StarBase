@@ -59,7 +59,7 @@ Func YololInstall($source)
             Send("{DOWN}")
         Next
         FileClose($file)
-        ;FileDelete($filename)
+        FileDelete($file)
     Else
         MsgBox('','err','err', 1)
     EndIf
