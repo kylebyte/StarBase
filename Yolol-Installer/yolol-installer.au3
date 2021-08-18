@@ -18,12 +18,15 @@ Main()
 
 Func Main()
     $rawyolol = GetSourceYolol()
+
     if $rawyolol Then
         WinActivate("Starbase")
-        MouseClick("Left")
-        Sleep(50)
-        Credits()
-        YololInstall($rawyolol)
+        if WinActive("Starbase") Then
+            MouseClick("Left")
+            Sleep(50)
+            Credits()
+            YololInstall($rawyolol)
+        EndIf
     Else
         MsgBox("","Error", "Something went wrong?", 2)
     EndIf
@@ -44,6 +47,8 @@ Func GetSourceYolol()
 EndFunc
 
 Func YololInstall($source)
+    Sleep(50)
+
     $file = "temp.yolol"
      
     _FileCreate($file)
@@ -78,15 +83,21 @@ Func ClearLines()
     Up20Lines()
     Sleep(50)
     for $j = 1 to 20
-        Send("^a")
-        Send("{DELETE}")
-        Send("{DOWN}")
+        if WinActive("Starbase") Then
+            Send("^a")
+            Send("{DELETE}")
+            Send("{DOWN}")
+        Else
+        MsgBox("", "Error", "Error with active window", 1)
+        EndIf
     Next
 
     Opt( "SendKeyDownDelay", 10)
 EndFunc
 
 Func Credits()
+    Sleep(50)
+
     Sleep(20)
     ClearLines()
     Up20Lines()
