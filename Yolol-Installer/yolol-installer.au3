@@ -20,7 +20,9 @@ Func Main()
     $rawyolol = GetSourceYolol()
 
     if $rawyolol Then
-        WinActivate("Starbase")
+        Sleep(20)
+        WinActivate("Starbase","Starbase")
+        Sleep(20)
         if WinActive("Starbase") Then
             MouseClick("Left")
             Sleep(50)
