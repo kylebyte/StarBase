@@ -48,7 +48,13 @@ Func GetSourceYolol()
         Exit(1)
     EndIf
 
-    Return $source
+    If $source Then
+        Return $source
+    Else
+        MsgBox("", "Error", "Source file error. Might be empty?", 3)
+        Exit(1)
+    EndIf
+    
 EndFunc
 
 Func YololInstall($source)
