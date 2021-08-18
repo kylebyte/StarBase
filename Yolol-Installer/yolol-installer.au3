@@ -21,7 +21,7 @@ Func Main()
 
     if $rawyolol Then
         Sleep(20)
-        WinActivate("Starbase","Starbase")
+        WinActivate("Starbase")
         Sleep(20)
         if WinActive("Starbase") Then
             MouseClick("Left")
@@ -29,6 +29,9 @@ Func Main()
             Credits()
             YololInstall($rawyolol)
             SoundPlay("C:\Windows\media\Alarm03.wav",1)
+        Else
+            MsgBox("", "Error", "Error with active window", 1)
+            Exit(1)
         EndIf
     Else
         MsgBox("","Error", "Something went wrong?", 2)
