@@ -3,6 +3,8 @@
 #include <Inet.au3>
 #include <MsgBoxConstants.au3>
 
+#RequireAdmin
+
 ;yolol installer script, using autoIT
 ;created by github.com/kylebyte
 ;requires autoit install, https://www.autoitscript.com/site/autoit/downloads/
@@ -22,11 +24,8 @@ Func Main()
     if $rawyolol Then
         Sleep(20)
         WinActivate("Starbase")
-        Do
-            WinActivate("Starbase")
-        Until IsStarbaseActive()
+        WinWaitActive("Starbase")
 
-        
         Sleep(20)
         if WinActive("Starbase") Then
             MouseClick("Left")
