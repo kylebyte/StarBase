@@ -26,11 +26,11 @@ Func Main()
             Sleep(50)
             Credits()
             YololInstall($rawyolol)
+            SoundPlay("C:\Windows\media\Alarm03.wav",1)
         EndIf
     Else
         MsgBox("","Error", "Something went wrong?", 2)
     EndIf
-
 EndFunc
 
 Func GetSourceYolol()
@@ -53,15 +53,19 @@ Func YololInstall($source)
      
     _FileCreate($file)
     FileOpen($file)
-    FileWrite($file,$source)    
+    FileWrite($file,$source)
 
     if $file Then
         For $i = 1 to _FileCountLines($file)
-            $line = FileReadLine($file, $i)
-            ;MsgBox("","", $line, 1)
-            Send($line,1)
-            Sleep(50)
-            Send("{DOWN}")
+            if WinActive("Starbase") Then
+                $line = FileReadLine($file, $i)
+                Send($line,1)
+                Sleep(50)
+                Send("{DOWN}")
+            Else
+                MsgBox("", "Error", "Error with active window", 1)
+                Exit(1)
+            EndIf
         Next
         FileClose($file)
         FileDelete($file)
@@ -88,7 +92,8 @@ Func ClearLines()
             Send("{DELETE}")
             Send("{DOWN}")
         Else
-        MsgBox("", "Error", "Error with active window", 1)
+            MsgBox("", "Error", "Error with active window", 1)
+            Exit(1)
         EndIf
     Next
 
@@ -102,12 +107,17 @@ Func Credits()
     ClearLines()
     Up20Lines()
 
-    Send("YOLOL INSTALLER by github.com/kylebyte/StarBase")
-    Sleep(1000)
-    Opt( "SendKeyDownDelay", 30)
-    Send("^a")
-    Opt( "SendKeyDownDelay", 10)
-    Sleep(50)
-    Send("{DELETE}")
-    Up20Lines()
+    if WinActive("Starbase") Then
+        Send("YOLOL INSTALLER by github.com/kylebyte/StarBase")
+        Sleep(1000)
+        Opt( "SendKeyDownDelay", 30)
+        Send("^a")
+        Opt( "SendKeyDownDelay", 10)
+        Sleep(50)
+        Send("{DELETE}")
+        Up20Lines()
+    Else
+        MsgBox("", "Error", "Error with active window", 1)
+        Exit(1)
+    EndIf
 EndFunc
