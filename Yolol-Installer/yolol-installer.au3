@@ -22,6 +22,11 @@ Func Main()
     if $rawyolol Then
         Sleep(20)
         WinActivate("Starbase")
+        Do
+            WinActivate("Starbase")
+        Until IsStarbaseActive()
+
+        
         Sleep(20)
         if WinActive("Starbase") Then
             MouseClick("Left")
@@ -130,5 +135,14 @@ Func Credits()
     Else
         MsgBox("", "Error", "Error with active window", 1)
         Exit(1)
+    EndIf
+EndFunc
+
+
+Func IsStarbaseActive()
+    If WinActive("Starbase") Then 
+        Return 1 
+    Else 
+        Return 0
     EndIf
 EndFunc
