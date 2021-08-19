@@ -1,2 +1,2 @@
-if :tf then :fr=1 :trot=:tcrt :lsr=1 else :lsr=0 end 
+if :tf then :fr=1 :lsr=1 else :lsr=0 end 
 if :lsr then :lsr=0 else :lsr=0 end goto1 

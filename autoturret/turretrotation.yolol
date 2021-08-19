@@ -4,3 +4,7 @@ if :fr>=10 then :fr=0 goto2 end if :fr>=1 then :fr++ goto3 end
 if :pt==1 then :tr+=:r end 
 if :tr>=:mx and :r>0 then :r=:r*-1 :tpit=-5 end
 if :tr<=:mi and :r<0 then :r=:r*-1 :tpit=5 end goto2
+//tf is targetfound, fr is found recent
+//tr is turret rotation, tcrt is turret current rotation
+//pt is paint "enable laser designator"
+
