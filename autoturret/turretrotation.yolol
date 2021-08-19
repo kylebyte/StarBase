@@ -1,0 +1,6 @@
+:r=10
+if :tf then :fr=1 :tr=:tcrt end 
+if :fr>=15 then :fr=0 goto1 end if :fr>=1 then :fr++ goto2 end
+if :pt==1 then :tr+=:r end 
+if :tr>=70 and :r>0 then :r=:r*-1 end
+if :tr<=-70 and :r<0 then :r=:r*-1 end goto2
