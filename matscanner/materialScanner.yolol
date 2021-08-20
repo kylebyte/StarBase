@@ -1,5 +1,7 @@
 :index=0 n="\n"
-if :sensor==0 then :mat="" :vol="" :odt="off" goto6 end :scan=1 
-if :scanresults then goto4 else :odt="scanning" goto2 end
+if :sensor==0 then :mat="" :vol="" :odt="off" goto2 end :scan=1 
+if :scanresults then :odt="" goto4 else :odt="scanning" goto1 end
 if :vol then :odt+=n+:mat+n+:vol-"Ore" end
-if :index-1<:scanresults then :index++ goto3 else :odt="" goto2 end
+if :index-1<:scanresults then :index++ goto4 end
+
+:odt="" goto2
